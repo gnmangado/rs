@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    <persistence-unit name="re_domain_PU">
+        <class>net.dmslabs.re.domain.entities.Area</class>
+        <class>net.dmslabs.re.domain.entities.BackendUser</class>
+        <class>net.dmslabs.re.domain.entities.City</class>
+        <class>net.dmslabs.re.domain.entities.Client</class>
+        <class>net.dmslabs.re.domain.entities.Company</class>
+        <class>net.dmslabs.re.domain.entities.Currency</class>
+        <class>net.dmslabs.re.domain.entities.GlobalConfiguration</class>
+        <class>net.dmslabs.re.domain.entities.Image</class>
+        <class>net.dmslabs.re.domain.entities.OperationType</class>
+        <class>net.dmslabs.re.domain.entities.Project</class>
+        <class>net.dmslabs.re.domain.entities.ProjectImageSection</class>
+        <class>net.dmslabs.re.domain.entities.ProjectImageSectionImage</class>
+        <class>net.dmslabs.re.domain.entities.Property</class>
+        <class>net.dmslabs.re.domain.entities.PropertyHasOperationTypes</class>
+        <class>net.dmslabs.re.domain.entities.PropertyStatus</class>
+        <class>net.dmslabs.re.domain.entities.PropertyType</class>
+        <class>net.dmslabs.re.domain.entities.State</class>
+        <class>net.dmslabs.re.domain.entities.User</class>
+        <class>net.dmslabs.re.domain.entities.UserStatus</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    </persistence-unit>
+</persistence>

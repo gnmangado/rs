@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd"
+    xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx">
+
+    <!-- Load properties -->
+    <context:property-placeholder location="classpath:app_persistence_lib.properties" />
+
+    <!-- Entity manager factory creation: data source and jpa vendor configuration -->
+    <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+        <property name="database" value="MYSQL" />
+        <property name="showSql" value="true" />
+        <property name="generateDdl" value="false" />
+        <property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect" />
+    </bean>
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${entity.lib.db.driver}" />
+        <property name="url" value="${entity.lib.db.url}" />
+        <property name="username" value="${entity.lib.db.username}" />
+        <property name="password" value="${entity.lib.db.password}" />
+        <property name="initialSize" value="5" />
+        <property name="maxActive" value="10" />
+    </bean>
+
+    <bean id="emf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
+    </bean>
+
+    <!-- Include spring transaction manager -->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="emf" />
+    </bean>
+
+    <!-- Allow injection of entity manager using "@PersistenceContext" -->
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+    <!-- Allow spring to translate data access exceptions to specialized exceptions. -->
+    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
+    <!-- Turn on spring's annotation wiring - Not needed as we are turning it on with component-scan -->
+    <!-- <context:annotation-config /> -->
+
+    <!-- Turn on spring's annotation wiring and also auto register spring beans using the base package scan -->
+    <!-- Classes annotated with the following are registered automatically as beans: @Component, @Controller, @Repository, @Service -->
+    <context:component-scan base-package="net.dmslabs.re.persistence.dao" />
+
+    <!-- Turn on annotation driven transactions: allow usage of @Transactional at class and method level. -->
+    <!-- Per documentation is preferable to annotate concrete classes instead of interfaces -->
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
+</beans>
