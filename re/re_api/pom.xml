@@ -3,11 +3,11 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.dmslabs</groupId>
+    <groupId>net.dmslabs</groupId>
     <artifactId>re</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>com.dmslabs</groupId>
+  <groupId>net.dmslabs</groupId>
   <artifactId>re_api</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>re_api</name>
