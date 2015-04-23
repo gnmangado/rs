@@ -7,8 +7,8 @@
         <artifactId>re</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>re_domain</artifactId>
-    <name>re_domain</name>
+    <artifactId>re_persistence_remote</artifactId>
+    <name>re_persistence_remote</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
