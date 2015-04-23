@@ -19,7 +19,7 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            classpath:/re_api-servlet.xml
+            /WEB-INF/re_api-servlet.xml
             classpath:/springConfig/entity_lib_spring_beans.xml
         </param-value>
     </context-param>
