@@ -7,4 +7,10 @@
   <name>re</name>
   <description>Real Real Estate</description>
 
+  <modules>
+  	<module>re_domain</module>
+  	<module>re_persistence</module>
+  	<module>re_api</module>
+  	<module>re_recommendations</module>
+  </modules>
 </project>
