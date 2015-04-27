@@ -44,7 +44,7 @@ public class StateDaoImpl extends AbstractCommonDaoImpl<State> implements StateD
         if (setName) {
             query.setParameter("name", "%" + name.toUpperCase() + "%");
         }
-
+        
         return query.getResultList();
     }
 

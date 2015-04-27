@@ -23,7 +23,7 @@ public class AreaDaoImpl extends AbstractCommonDaoImpl<Area> implements AreaDao 
         return getEntityManager().createNamedQuery("Area.findAll", Area.class).getResultList();
     }
 
-    public List<Area> findAreas(String name, Integer cityId, Integer stateId, boolean onlyEnabled) {
+    public List<Area> findAreas(String name, Integer city, Integer state, Boolean onlyEnabled) {
         boolean whereAppended = false;
         boolean setName = false;
         boolean setCityId = false;
@@ -36,25 +36,25 @@ public class AreaDaoImpl extends AbstractCommonDaoImpl<Area> implements AreaDao 
             jpql.append("WHERE UPPER(a.name) LIKE :name ");
             setName = true;
         }
-        if (cityId != null) {
+        if (city != null) {
             if (whereAppended) {
-                jpql.append("AND a.cityId.id = :cityId ");
+                jpql.append("AND a.city.id = :city ");
             } else {
-                jpql.append("WHERE a.cityId.id = :cityId ");
+                jpql.append("WHERE a.city.id = :city ");
             }
             whereAppended = true;
             setCityId = true;
         }
-        if (stateId != null) {
+        if (state != null) {
             if (whereAppended) {
-                jpql.append("AND a.cityId.stateId.id = :stateId ");
+                jpql.append("AND a.city.state.id = :state ");
             } else {
-                jpql.append("WHERE a.cityId.stateId.id = :stateId ");
+                jpql.append("WHERE a.city.state.id = :state ");
             }
             whereAppended = true;
             setStateId = true;
         }
-        if (onlyEnabled) {
+        if (onlyEnabled != null && onlyEnabled) {
             if (whereAppended) {
                 jpql.append("AND a.enabled = TRUE ");
             } else {
@@ -67,10 +67,10 @@ public class AreaDaoImpl extends AbstractCommonDaoImpl<Area> implements AreaDao 
             query.setParameter("name", "%" + name.toUpperCase() + "%");
         }
         if (setCityId) {
-            query.setParameter("cityId", cityId);
+            query.setParameter("city", city);
         }
         if (setStateId) {
-            query.setParameter("stateId", stateId);
+            query.setParameter("state", state);
         }
 
         return query.getResultList();

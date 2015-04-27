@@ -5,7 +5,6 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -42,8 +41,8 @@ public class Area implements Serializable, BaseIntegerIdentificableEntity {
     private boolean enabled;
 
     @JoinColumn(name = "city_id", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private City cityId;
+    @ManyToOne(optional = false)
+    private City city;
 
     public Area() {
         super();
@@ -85,12 +84,12 @@ public class Area implements Serializable, BaseIntegerIdentificableEntity {
         this.enabled = enabled;
     }
 
-    public City getCityId() {
-        return cityId;
+    public City getCity() {
+        return city;
     }
 
-    public void setCityId(City cityId) {
-        this.cityId = cityId;
+    public void setCity(City cityId) {
+        this.city = cityId;
     }
 
     @Override

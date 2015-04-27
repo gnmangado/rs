@@ -21,7 +21,7 @@ public class CityDaoImpl extends AbstractCommonDaoImpl<City> implements CityDao 
         return getEntityManager().createNamedQuery("City.findAll", City.class).getResultList();
     }
 
-    public List<City> findCities(String name, Integer stateId, boolean onlyEnabled) {
+    public List<City> findCities(String name, Integer stateId, Boolean onlyEnabled) {
         boolean whereAppended = false;
         boolean setName = false;
         boolean setStateId = false;
@@ -35,14 +35,14 @@ public class CityDaoImpl extends AbstractCommonDaoImpl<City> implements CityDao 
         }
         if (stateId != null) {
             if (whereAppended) {
-                jpql.append("AND c.stateId.id = :stateId ");
+                jpql.append("AND c.state.id = :stateId ");
             } else {
-                jpql.append("WHERE c.stateId.id = :stateId ");
+                jpql.append("WHERE c.state.id = :stateId ");
             }
             whereAppended = true;
             setStateId = true;
         }
-        if (onlyEnabled) {
+        if (onlyEnabled != null && onlyEnabled) {
             if (whereAppended) {
                 jpql.append("AND c.enabled = TRUE ");
             } else {

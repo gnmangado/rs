@@ -51,4 +51,10 @@ public interface CommonDao<T> {
      * @return A list containing all the records of the given entity.
      */
     public List<T> findAll();
+    
+    /**
+     * Removes the given entity from the database.
+     * @param e The entity to be removed.
+     */
+    public void remove(Integer id);
 }

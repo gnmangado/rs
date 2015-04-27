@@ -7,6 +7,6 @@ import net.dmslabs.re.domain.entities.City;
 
 public interface CityDao extends CommonDao<City> {
 
-    public List<City> findCities(String name, Integer stateId, boolean onlyEnabled);
+    public List<City> findCities(String name, Integer stateId, Boolean onlyEnabled);
     
 }

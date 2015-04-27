@@ -6,6 +6,6 @@ import net.dmslabs.re.domain.entities.Area;
 
 public interface AreaDao extends CommonDao<Area> {
 
-    public List<Area> findAreas(String name, Integer cityId, Integer stateId, boolean onlyEnabled);
+    public List<Area> findAreas(String name, Integer cityId, Integer stateId, Boolean onlyEnabled);
 
 }

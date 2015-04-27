@@ -34,43 +34,33 @@ public class StatesController {
         this.stateDao = stateDao;
     }
 
-    @RequestMapping(value = "/{name}", method = RequestMethod.GET, headers = { "Accept=application/json" })
-    @ResponseStatus(HttpStatus.OK)
-    public @ResponseBody
-    State testService(@PathVariable("name") String name) {
-        logger.info("BEGIN::testService");
-        State c = new State();
-        c.setName(name);
-        // c = stateDao.store(c);
-        return c;
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public @ResponseBody State getState(@PathVariable(value = "id") Integer id) {
+        return stateDao.findById(id);
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public @ResponseBody List<State> getStates(@RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "onlyEnabled", required = false) Boolean onlyEnabled) {
+        return stateDao.findStates(name, onlyEnabled == null ? false : onlyEnabled);
     }
 
     @RequestMapping(method = RequestMethod.POST, headers = "Content-Type=application/json")
     @ResponseStatus(HttpStatus.OK)
-    public @ResponseBody
-    State createState(@RequestBody State state, HttpServletResponse response) {
-        State s = stateDao.store(state);
-        response.setHeader("Location", "/states/caca");
-        return s;
+    public void createState(@RequestBody State state, HttpServletResponse response) {
+        stateDao.store(state);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT, headers = { "Accept=application/json" })
     @ResponseStatus(HttpStatus.OK)
-    public void putState(@PathVariable("id") int id, @RequestBody State state) {
+    public void updateState(@PathVariable("id") Integer id, @RequestBody State state, HttpServletResponse response) {
+        state.setId(id);
         stateDao.update(state);
     }
 
-    @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody
-    List<State> getStates(@RequestParam(value = "name", required = false) String name,
-            @RequestParam(value = "onlyEnabled", required = false) Boolean onlyEnabled) {
-        logger.info("BEGIN::testService");
-        return stateDao.findStates(name, onlyEnabled == null ? false : onlyEnabled);
-    }
-
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
-    public void deleteSpittle(@PathVariable("id") long id) {
- 
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteState(@PathVariable("id") Integer id) {
+        stateDao.remove(id);
     }
 }

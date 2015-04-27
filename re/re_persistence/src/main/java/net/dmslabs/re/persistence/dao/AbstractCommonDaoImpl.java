@@ -30,6 +30,12 @@ public abstract class AbstractCommonDaoImpl<T extends BaseIntegerIdentificableEn
         em.merge(e);
         return e;
     }
+    
+    @Transactional
+    public void remove(Integer id) {
+        T entity = em.getReference(clazz,id);
+        em.remove(entity);
+    }
 
     @Transactional(readOnly = true)
     public T findById(Integer id) {

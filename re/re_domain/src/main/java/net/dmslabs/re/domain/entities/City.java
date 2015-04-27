@@ -42,8 +42,8 @@ public class City implements Serializable, BaseIntegerIdentificableEntity {
     private boolean enabled;
 
     @JoinColumn(name = "state_id", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private State stateId;
+    @ManyToOne(optional = false)
+    private State state;
 
     public City() {
         enabled = true;
@@ -85,12 +85,12 @@ public class City implements Serializable, BaseIntegerIdentificableEntity {
         this.enabled = enabled;
     }
 
-    public State getStateId() {
-        return stateId;
+    public State getState() {
+        return state;
     }
 
-    public void setStateId(State stateId) {
-        this.stateId = stateId;
+    public void setState(State stateId) {
+        this.state = stateId;
     }
 
     @Override
