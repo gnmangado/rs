@@ -33,7 +33,7 @@ public abstract class AbstractCommonDaoImpl<T extends BaseIntegerIdentificableEn
     
     @Transactional
     public void remove(Integer id) {
-        T entity = em.getReference(clazz,id);
+        T entity = em.getReference(clazz, id);
         em.remove(entity);
     }
 
