@@ -11,7 +11,11 @@
     "angular-resource": "^1.3.0",
     "angular-route": "^1.3.0",
     "angular-sanitize": "^1.3.0",
-    "angular-touch": "^1.3.0"
+    "angular-touch": "^1.3.0",
+    "morris-js": "https://github.com/morrisjs/morris.js.git",
+    "flot-charts": "https://github.com/flot/flot.git",
+    "font-awesome": "https://github.com/components/font-awesome.git",
+    "raphael": "https://github.com/DmitryBaranovskiy/raphael.git"
   },
   "devDependencies": {
     "angular-mocks": "^1.3.0"
