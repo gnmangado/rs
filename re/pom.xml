@@ -242,6 +242,7 @@
         <module>re_persistence_remote</module>
         <module>re_commons</module>
         <module>re_web_backoffice</module>
+        <module>re_liquid</module>
     </modules>
 
 </project>
