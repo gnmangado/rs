@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name siteApp
+ * @name reWebBackofficeApp
  * @description
- * # siteApp
+ * # reWebBackofficeApp
  *
  * Main module of the application.
  */
 angular
-  .module('siteApp', [
+  .module('reWebBackofficeApp', [
     'ngAnimate',
     'ngAria',
     'ngCookies',
@@ -22,14 +22,19 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'views/home.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .when('/home', {
+        templateUrl: 'views/home.html',
+        controller: 'HomeCtrl',
+        controllerAs: 'home'
+      })
+      .when('/states', {
+        templateUrl: 'views/states.html',
+        controller: 'StatesCtrl',
+        controllerAs: 'states'
       })
       .otherwise({
         redirectTo: '/'

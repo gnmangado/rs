@@ -1,14 +1,14 @@
-use strict';
+'use strict';
 
 /**
  * @ngdoc function
- * @name reWebBackofficeApp.controller:MainCtrl
+ * @name reWebBackofficeApp.controller:HomeCtrl
  * @description
- * # MainCtrl
+ * # HomeCtrl
  * Controller of the reWebBackofficeApp
  */
 angular.module('reWebBackofficeApp')
-  .controller('MainCtrl', function () {
+  .controller('HomeCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

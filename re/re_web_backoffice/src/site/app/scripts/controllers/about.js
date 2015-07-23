@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name siteApp.controller:AboutCtrl
+ * @name reWebBackofficeApp.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the siteApp
+ * Controller of the reWebBackofficeApp
  */
-angular.module('siteApp')
+angular.module('reWebBackofficeApp')
   .controller('AboutCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
