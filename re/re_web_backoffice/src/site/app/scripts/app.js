@@ -17,14 +17,15 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'gettext'
   ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/home.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        controller: 'HomeCtrl',
+        controllerAs: 'home'
       })
       .when('/home', {
         templateUrl: 'views/home.html',
@@ -36,7 +37,17 @@ angular
         controller: 'StatesCtrl',
         controllerAs: 'states'
       })
+      .when('/cities', {
+        templateUrl: 'views/cities.html',
+        controller: 'CitiesCtrl',
+        controllerAs: 'cities'
+      })
       .otherwise({
         redirectTo: '/'
       });
   });
+
+  angular.module('reWebBackofficeApp').run(function (gettextCatalog) {
+    gettextCatalog.debug = true;
+    gettextCatalog.setCurrentLanguage('es');
+});

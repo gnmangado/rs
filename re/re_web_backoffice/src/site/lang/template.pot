@@ -1,0 +1,18 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: app/views/states.html:11
+msgid "Home"
+msgstr ""
+
+#: app/views/states.html:26
+msgid "Search"
+msgstr ""
+
+#: app/views/states.html:16
+#: app/views/states.html:4
+msgid "States"
+msgstr ""

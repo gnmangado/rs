@@ -72,7 +72,7 @@ module.exports = function (grunt) {
       options: {
         port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
-        hostname: 'localhost',
+        hostname: '0.0.0.0',
         livereload: 35729
       },
       livereload: {
@@ -405,6 +405,35 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+    
+    nggettext_extract: {
+      pot: {
+        options: {
+          extensions: {
+            htm: 'html',
+            html: 'html',
+            php: 'html',
+            phtml: 'html',
+            tml: 'html',
+            aspx: 'html',
+            js: 'js'
+          },
+        },
+        files: {
+          'lang/template.pot': [
+          '**/*.html',
+          '**/*.aspx',
+          '**/langkeys.js' ]
+        }
+      },
+    },
+    nggettext_compile: {
+      all: {
+        files: {
+          'app/translations.js': ['lang/*.po']
+        }
+      }
     }
   });
 
@@ -461,4 +490,9 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+  
+  grunt.loadNpmTasks('grunt-angular-gettext');
+
+  grunt.registerTask('extract', ['nggettext_extract']);
+  grunt.registerTask('compile', ['nggettext_compile']);
 };

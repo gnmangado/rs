@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name reWebBackofficeApp.controller:HomeCtrl
+ * @name reWebBackofficeApp.controller:CitiesCtrl
  * @description
- * # HomeCtrl
+ * # CitiesCtrl
  * Controller of the reWebBackofficeApp
  */
 angular.module('reWebBackofficeApp')
-  .controller('HomeCtrl', function () {
+  .controller('CitiesCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

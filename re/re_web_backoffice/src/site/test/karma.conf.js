@@ -37,6 +37,7 @@ module.exports = function(config) {
       'bower_components/mocha/mocha.js',
       'bower_components/morris-js/morris.js',
       'bower_components/flot-charts/jquery.flot.js',
+      'bower_components/angular-gettext/dist/angular-gettext.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
